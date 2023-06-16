@@ -37,6 +37,7 @@ const StudentDetails = () => {
             if (!a.includes(c.month.slice(0, 3))) {
                 a.push(c.month.slice(0, 3));
             }
+            //comment
             return a;
         }, []);
 
