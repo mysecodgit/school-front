@@ -1,1 +1,102 @@
 //Suggested location to add your overrides so that migration would be easy by just updating the SASS folder in the future
+.layout-menu li a {
+    color: #a6b0cf;
+}
+
+.layout-menu li a:hover {
+    // color: #2a3042;
+    color: #fff;
+    background: none;
+    border: none;
+}
+
+.layout-menu li .layout-menuitem-root-text {
+    color: #fff;
+}
+
+.layout-menu li a.router-link-exact-active {
+    color: #fff;
+}
+
+.layout-menu li a:focus {
+    box-shadow: none;
+}
+
+.layout-menu li a span {
+    font-size: 13px;
+    margin-left: 1rem;
+}
+
+.layout-menu li a i {
+    font-size: 1.25rem;
+}
+
+.text-success {
+    color: green;
+}
+
+.text-danger {
+    color: red;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.p-inputtext,
+.p-dropdown {
+    width: 100%;
+}
+
+.p-dialog-content {
+    border-radius: 0 0 10px 10px;
+}
+
+.btn {
+    border: none;
+    padding: 6px 20px;
+    border-radius: 4px;
+    font-family: "Poppins";
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-success {
+    background: rgb(115, 205, 124);
+    color: white;
+}
+
+.btn-primary {
+    background: rgb(115, 124, 205);
+    color: white;
+}
+
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins" !important;
+}
+
+.d-flex-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layout-config {
+    display: none;
+}
+
+.fee-report-table tr:last-child td {
+    font-weight: 600;
+}
+
+.text-green {
+    color: #17d517;
+}

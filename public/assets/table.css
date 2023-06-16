@@ -1,0 +1,49 @@
+:root {
+    --clr-primary: #d0def2;
+    --clr-primary-light: #f3f8fe;
+    --clr-primary-dark: #a7bad3;
+    --clr-gray100: #f9fbff;
+    --clr-gray150: #f4f6fb;
+    --clr-gray200: #eef1f6;
+    --clr-gray300: #e1e5ee;
+    --clr-gray400: #767b91;
+    --clr-gray500: #4f546c;
+    --clr-gray600: #2a324b;
+    --clr-gray700: #161d34;
+
+    /*   border radius */
+    --radius: 0.2rem;
+}
+
+@media print {
+    .mx-0 {
+        margin-left: -1.5rem !important;
+        margin-right: -1.5rem !important;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        /* box-shadow: 20px 20px 20px 5px var(--clr-primary-dark); */
+        background-color: white;
+        text-align: left;
+        /* margin-left: -1.5rem; */
+    }
+
+    th {
+        background-color: var(--clr-primary);
+        padding: 0.75rem 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 0.7rem;
+        font-weight: 900;
+    }
+
+    td {
+        padding: 1rem 2rem;
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--clr-primary-light);
+    }
+}
