@@ -89,7 +89,7 @@ const Payments = () => {
                             <label htmlFor="">Student ID</label>
                             <div className="flex">
                                 <InputText name="studentId" value={input.studentId} type="text" onChange={handleChange} />
-                                <button className="btn bg-success text-white ml-3" onClick={() => getStudentFee(input.studentId)}>
+                                <button className="btn btn-success text-white ml-3" onClick={() => getStudentFee(input.studentId)}>
                                     Search
                                 </button>
                             </div>
@@ -123,7 +123,7 @@ const Payments = () => {
                             </thead>
                             <tbody>
                                 {payments.map(({ transaction_id, date, std_name, class_name, credit }) => (
-                                    <tr>
+                                    <tr key={transaction_id}>
                                         <td>{transaction_id}</td>
                                         <td>{date}</td>
                                         <td> {std_name}</td>

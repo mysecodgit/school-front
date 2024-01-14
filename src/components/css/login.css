@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 14px;
+}
+body {
+    font-family: "Poppins";
+}
+
+.login-container {
+    font-size: 16px !important;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(80, 12, 147, 1) 0%, rgba(53, 53, 218, 1) 55%, rgba(15, 173, 205, 1) 100%);
+}
+
+.container {
+    width: 360px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.login-container form {
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.bg-warning {
+    background: orange;
+    color: white;
+}
+
+.form-container,
+.buttons {
+    margin: 20px 10px;
+}
+
+.mb {
+    margin-bottom: 10px;
+}
+
+.form-sections {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+}
+.heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heading {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px 10px;
+}
+label {
+    font-size: 0.918rem;
+    margin-bottom: 0;
+}
+.form-fields input {
+    height: 40px;
+    width: 100%;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid rgb(122, 115, 115);
+}
+.form-fields input:hover,
+input:focus {
+    border: 1px solid rgb(5, 63, 170);
+}
+
+#pass-field-container {
+    position: relative;
+}
+#pass {
+    padding-right: 35px;
+}
+input[type="checkbox"] {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    accent-color: rgb(204, 0, 255);
+    height: 15px;
+    width: 15px;
+    padding: 5px;
+    cursor: pointer;
+}
+.form-fields input[type="submit"] {
+    margin-top: 10px;
+    height: 40px;
+    font-size: 1rem;
+    background-color: rgb(29, 21, 117);
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+.forgot-password a {
+    color: rgb(131, 0, 163);
+    font-weight: 700;
+    text-decoration-line: none;
+    padding-left: 8px;
+}

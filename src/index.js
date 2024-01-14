@@ -3,13 +3,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 //import * as serviceWorker from './serviceWorker';
-import { HashRouter } from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
+import Login from "./components/Login";
 
 ReactDOM.render(
     <HashRouter>
         <ScrollToTop>
-            <App></App>
+            <Switch>
+                <Route path="/login" component={Login} />
+                <Route path="/" component={App} />
+            </Switch>
         </ScrollToTop>
     </HashRouter>,
     document.getElementById("root")

@@ -5,22 +5,30 @@ import { Dialog } from "primereact/dialog";
 import "../../table.css";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
+import SubjectTeacherTable from "./subjectTeacherModal";
+import NewClass from "./newClass";
+import SubjectTeacherModal from "./subjectTeacherModal";
 const url = "http://localhost:5000/class/";
 
 const Classes = () => {
     const [klasses, setKlasses] = useState([]);
-    const [shifts, setShifts] = useState([]);
     const [input, setInput] = useState({
         class_name: "",
         shift_id: "",
     });
 
     const [show, setShow] = useState(false);
+    const [visible, setVisible] = useState(false);
+    const [classId, setClassId] = useState(null);
 
-    const handleShow = () => setShow(true);
     const handleHide = () => {
         setShow(false);
         setInput({ class_name: "", shift_id: "" });
+    };
+
+    const handleVisible = (id) => {
+        setClassId(id);
+        setVisible(true);
     };
 
     async function getKlasses() {
@@ -28,14 +36,8 @@ const Classes = () => {
         setKlasses(data);
     }
 
-    const getShifts = async () => {
-        const { data } = await axios.get("http://localhost:5000/shift/list");
-        setShifts(data);
-    };
-
     useEffect(() => {
         getKlasses();
-        getShifts();
     }, []);
 
     const handleUpdate = (klass) => {
@@ -85,19 +87,7 @@ const Classes = () => {
                             add new
                         </button>
                     </div>
-                    <Dialog header={input.class_id ? "update" : "new"} position="top" visible={show} style={{ width: "30vw" }} modal onHide={() => handleHide()}>
-                        <div className="mb-3">
-                            <label htmlFor="">Class Name</label>
-                            <InputText id="klass" type="text" value={input.class_name} onChange={(e) => setInput({ ...input, class_name: e.target.value })} />
-                        </div>
-                        <div className="mb-3">
-                            <label>shifts</label>
-                            <Dropdown value={input.shift_id} onChange={(e) => setInput({ ...input, shift_id: e.target.value })} options={shifts} optionLabel="shift" optionValue="shift_id" placeholder="Select shift" />
-                        </div>
-                        <button className={`btn btn-${input.class_id ? "primary" : "success"}`} onClick={handleSave}>
-                            {input.class_id ? "update" : "save"}
-                        </button>
-                    </Dialog>
+                    <NewClass input={input} setInput={setInput} show={show} handleHide={handleHide} handleSave={handleSave} />
                     <div className="card-body mx-0">
                         <table>
                             <thead>
@@ -114,14 +104,18 @@ const Classes = () => {
                                         <td>{klass.class_id}</td>
                                         <td>{klass.class_name}</td>
                                         <td>{klass.shift}</td>
-                                        <td>
+                                        <td className="in-flex-center">
                                             <i className="bx bx-sm bx-edit text-success mr-2" onClick={() => handleUpdate(klass)}></i>
-                                            <i className="bx bx-sm bx-trash text-danger" onClick={() => handleDelete(klass)}></i>
+                                            <i className="bx bx-sm bx-trash text-danger mr-2" onClick={() => handleDelete(klass)}></i>
+                                            <button className="btn bg-primary btn-sm text-white" onClick={() => handleVisible(klass.class_id)}>
+                                                assign subjects
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
+                        <SubjectTeacherModal visible={visible} setVisible={setVisible} classId={classId} />
                     </div>
                 </div>
             </div>

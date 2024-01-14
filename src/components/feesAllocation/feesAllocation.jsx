@@ -95,7 +95,6 @@ const FeesAllocation = () => {
     };
 
     const handleUpdate = (tran) => {
-        console.log(tran);
         setInput(tran);
         setVisible(true);
     };

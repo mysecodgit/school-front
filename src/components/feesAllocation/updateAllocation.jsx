@@ -12,9 +12,10 @@ const UpdateAllocation = ({ input, classes, visible, feeTypes, handleUnvisible }
         setStudents(data);
     };
 
-    useEffect(() => {
-        getStudents(input.class_id);
-    }, [visible]);
+    // useEffect(() => {
+    //     // console.log(input);
+    //     // getStudents(input.class_id);
+    // }, [visible]);
     return (
         <Dialog header="update" position="top" visible={visible} style={{ width: "35vw" }} modal onHide={() => handleUnvisible()}>
             <div className="mb-3">

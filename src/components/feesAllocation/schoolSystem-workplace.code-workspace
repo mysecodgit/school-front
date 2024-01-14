@@ -1,11 +1,13 @@
 {
-  "folders": [
-	{
-		"path": "../../../../../Documents/nodejs/schoolSystem"
-	},
-	{
-		"path": "../../.."
-	}
-],
-  "settings": {}
+    "folders": [
+        {
+            "path": "../../../../../Documents/nodejs/inventory-api"
+        },
+        {
+            "path": "../../../../../Documents/dashy-react"
+        }
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "codify"
+    }
 }
