@@ -11,8 +11,6 @@ const ExamResultModal = ({ show, handleHide, input, setInput, handleSave }) => {
     const [examTypes, setExamTypes] = useState([]);
     const [subjects, setSubjects] = useState([]);
 
-    console.log(input);
-
     async function getClasses() {
         const { data } = await axios.get("http://localhost:5000/class/list");
         setClasses(data);

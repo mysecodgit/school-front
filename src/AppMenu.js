@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import classNames from "classnames";
 import { Ripple } from "primereact/ripple";
 import { Badge } from "primereact/badge";
+import { userContext } from "./App";
 
 const AppSubmenu = (props) => {
     const [activeIndex, setActiveIndex] = useState(null);
+
+    const logged = useContext(userContext);
 
     const onMenuItemClick = (event, item, index) => {
         if (item.disabled) {
@@ -19,7 +22,6 @@ const AppSubmenu = (props) => {
             item.command({ originalEvent: event, item: item });
         }
 
-        console.log("props => ", props);
         if (index === activeIndex) setActiveIndex(null);
         else setActiveIndex(index);
 
@@ -56,18 +58,20 @@ const AppSubmenu = (props) => {
     const renderLink = (item, i) => {
         let content = renderLinkContent(item);
 
-        if (item.to) {
-            return (
-                <NavLink aria-label={item.label} onKeyDown={onKeyDown} role="menuitem" className="p-ripple" activeClassName="router-link-active router-link-exact-active" to={item.to} onClick={(e) => onMenuItemClick(e, item, i)} exact target={item.target}>
-                    {content}
-                </NavLink>
-            );
-        } else {
-            return (
-                <a tabIndex="0" aria-label={item.label} onKeyDown={onKeyDown} role="menuitem" href={item.url} className="p-ripple" onClick={(e) => onMenuItemClick(e, item, i)} target={item.target}>
-                    {content}
-                </a>
-            );
+        if (item.roles && item.roles.includes(logged.role)) {
+            if (item.to) {
+                return (
+                    <NavLink aria-label={item.label} onKeyDown={onKeyDown} role="menuitem" className="p-ripple" activeClassName="router-link-active router-link-exact-active" to={item.to} onClick={(e) => onMenuItemClick(e, item, i)} exact target={item.target}>
+                        {content}
+                    </NavLink>
+                );
+            } else {
+                return (
+                    <a tabIndex="0" aria-label={item.label} onKeyDown={onKeyDown} role="menuitem" href={item.url} className="p-ripple" onClick={(e) => onMenuItemClick(e, item, i)} target={item.target}>
+                        {content}
+                    </a>
+                );
+            }
         }
     };
 

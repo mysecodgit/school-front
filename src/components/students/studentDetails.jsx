@@ -74,13 +74,14 @@ const StudentDetails = () => {
     };
 
     useEffect(() => {
-        getStudentInfo(id);
-        getStudentFees(id);
-        getStudentExams(id);
-        getStudentAttendance(id);
+        if (id) {
+            getStudentInfo(id);
+            getStudentFees(id);
+            getStudentExams(id);
+            getStudentAttendance(id);
+        }
     }, []);
 
-    if (!id) return;
     return (
         <div className="grid">
             <div className="col-3">
